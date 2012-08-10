@@ -80,4 +80,9 @@ class AddressesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def validate_email
+    raise request.xhr?.inspect
+  	@address = Address.where(:email => params[:email]).first
+  end
 end

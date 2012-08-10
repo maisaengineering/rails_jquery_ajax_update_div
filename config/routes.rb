@@ -1,5 +1,9 @@
 RailsJqueryAjaxUpdateDiv::Application.routes.draw do
-  resources :addresses
+  resources :addresses do
+  	collection do
+  		get 'validate_email'
+  	end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -50,7 +54,7 @@ RailsJqueryAjaxUpdateDiv::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'addresses#index'
 
   # See how all your routes lay out with "rake routes"
 

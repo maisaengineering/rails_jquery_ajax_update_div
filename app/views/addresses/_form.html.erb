@@ -18,8 +18,26 @@
   <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
+    <div id="email_validate_lbl">Replace this div</div>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+
+<script type="text/javascript">
+
+$('#address_email').blur(function() {
+	// force cross-site scripting (as of jQuery 1.5)
+	//jQuery.support.cors = true;
+	//console.log($(this).val());
+	$.ajax('/addresses/validate_email',
+		{email:$(this).val()},
+		function(data) {
+
+		}, 'script'
+	);
+
+});
+</script>
